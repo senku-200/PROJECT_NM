@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+    transition: .5s;
+}
+button:hover{
+    box-shadow: 0 0 10px black;
+    cursor: pointer;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(18,71,139);
+    position: relative;
+    color: white;
+}
+.bg{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;  
+}
+.container{
+    padding: 5% 7%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    align-items: center;
+    background-color: #1671f3;
+    color: #000;
+    border-radius: 25px;
+    box-shadow: 0 0 20px black;
+}
+.profile_image{
+    width:  100px;
+    height:  100px;
+    clip-path: circle(50%);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 0 10px  black);
+    top: 5%;
+    box-shadow: 0 0 10px 5px black;
+}
+.text_part{
+    position: relative;
+    top: 100px;
+    line-height: 3em;
+    margin-bottom: 50px;
+    color: #000;
+    left: -20px;
+    margin-top: 20px;
+}
+.edit{
+    position: absolute;
+    right: 10px;
+    top: 40px;
+}
+.edit button{
+    padding: 10px 30px;
+    border-radius: 20px;
+    border:none;
+    outline: none;
+    background-color: black;
+    color: white;
+    transition: .5s;
+}
+.edit button:hover{
+    box-shadow: 0 0 10px black;
+}
+span{
+    position: relative;
+    color: white;
+    left: 20%;
+}
+.username{
+    position: absolute;
+    top: -65px;
+    left: 55%;
+    transform: translateX(-50%);
+    color: gold;
+}
+.logout{
+    top: 30px;
+}
+.logout button{
+    background-color: rgba(255, 0, 0, 0.685);
+}
+.logout button:hover{
+    background-color: red;
+}
+.home{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.home button{
+    padding: 10px 20px;
+    background-color: green;
+    color: #000;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    transition: .5s;
+    font-weight: 600 ;
+}
+.home button:hover{
+    background-color: rgb(0, 255, 34);
+}
+
+.camera img{
+    width: 30px;
+}
+.camera{
+    position: absolute;
+    left: 240px;
+    top: 95px;
+    z-index: 100;
+}
+
+
+.popup{
+    position: relative;
+    width: 30%;
+    height: 90%;
+    background-color: white;
+    color: #000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 25px;
+    box-shadow: 0 0 10px blue;
+    display: none;
+}
+.h1{
+    position: relative;
+    padding: 10px 0px;
+    text-align: center;
+}
+.h1 h1{
+    font-size: 30px;
+    font-weight: 700;
+}
+.exit{
+    position: relative;
+    left: 20px;
+    top: 20px;
+}
+.exit img{
+    width: 20px;
+    cursor: pointer ;
+}
+.get_image_exit{
+    position: relative;
+    left: 20px;
+    top: 20px;
+}
+.get_image_exit img{
+    width: 20px;
+    cursor: pointer ;
+}
+.edit_profile_image{
+    width: 300px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 20px 0px;
+}
+.h3{
+    position: relative;
+    left: 0px; 
+    padding-left: 30px;
+}
+.h3 h3{
+    font-weight: 100;
+}
+.p{
+    position: relative;
+    left: 0px; 
+    padding: 5px 0px;
+    padding-left: 30px;
+    padding-right: 50px;
+}
+.p p{
+    font-size: 12px;
+}
+.end{
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 15px;
+}
+/* .end form{
+    position: absolute;
+} */
+.end button{
+    padding: 10px 40px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+.end form button{
+    padding: 10px 40px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+.get_image{
+    display: none;
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    background-color: white;
+    color: #000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 25px;
+    box-shadow: 0 0 10px blue;
+}
+.get_image form{
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 60%;
+}
+.chose_image{
+    position: relative;
+    top: 20px;
+}
+.h3_move{
+    text-align: center;
+    position: relative;
+    left: -15px;
+}
+.submit-btn{
+    padding: 10px 30px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background-color: black;
+    color: white;
+}
+
+.activate_container{
+    filter: blur(10px);
+}
+.activate_popup{
+    display: block;
+}
+.activate_get_image{
+    display: block;
+}
+.activate{
+    display: block;
+}

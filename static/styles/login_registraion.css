@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(18,71,139);
+    position: relative;
+    color: white;
+}
+.container{
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 60%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 40%;
+    background-color: rgb(101,161,216);
+    color: black;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    /* padding: 10% 10%; */
+}
+.content{
+    width: 40%;
+    height: 100%;    
+}
+.content .headline{
+    text-align: center;
+    position: relative;
+    top: 10%;
+}
+.content .headline h1{
+    text-shadow: 0 0 5px;
+    font-size: 50px;
+    font-weight: 100;
+    color: #fff;
+    pointer-events: none;
+}
+.content .headline-image{
+    position: relative;
+    top: 25%;
+    left: 12%;
+}
+.content .headline-image img{
+    width: 400px;
+    border-radius: 15px;
+    
+    box-shadow: 0 0 30px 10px rgb(135,185,246); 
+    transition: .3s;
+}
+.content .headline-image img:hover{
+    box-shadow: 0 0 15px 10px rgb(135,185,246);   
+}
+
+.container form{
+    width: 80%;
+    position: relative;
+    left: 48%;
+    top: 53%;
+    transform: translate(-50%,-50%);
+    padding: 5%;
+}
+.container form p{
+    margin: 10px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    top: -20px;
+}
+.container form p label{
+    font-size: larger;
+    position: relative;
+    top: 5px;
+    font-weight: 600;
+}
+#id_email{
+    margin-left: 43px;
+}
+
+.container form p input{
+    width: 100%;
+    margin-bottom: 10px;
+    border: none;
+    padding: 10px 10px 10px 0px;
+    outline: none;
+    position: relative;
+    top: -3px;
+    left: 45px;
+    border-radius: 10px;
+    padding-left: 20px;
+    font-size: large;
+    font-weight: 500;
+    color: #000;
+}
+ul{
+    display: none;
+}
+.helptext{
+    display: none;
+}
+#id_password2{
+    position: relative;
+    width: 1000px;
+    padding-left: 20px;
+    padding-right: 100px;
+    left: 30px;
+    top: 10px;
+}
+#id_password1{
+    position: relative;
+    left: 48px;
+}
+
+.submit{
+    padding: 10px 20%;
+    border: none;
+    outline: none;  
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    position: relative;
+    left: 60%;
+    transform: translateX(-50%);
+    top: 10px;
+    transition: .3s;
+    font-size: larger;
+    box-shadow: 0 0 10px 0px black;
+}
+.submit:hover{
+    background-color: rgba(0, 0, 0,.8);
+}
+header{
+    display: flex;
+    position: absolute;
+    left: 64%;
+    top: 15px;
+    z-index: 100;
+    justify-content: space-around;
+    align-items: center;
+}
+header h1{
+    
+    font-size: 40px;
+    text-align: center;
+    color: rgb(38,43,54);
+    text-shadow: 0 0 5px;
+    font-weight: 600;
+    text-transform:uppercase;
+    pointer-events: none;
+}
+.login_redirect{
+    position: absolute;
+    top: 98%;
+    left: 58%;
+    transform: translateX(-50%);
+
+}
+.login_redirect p{
+    text-align: center;
+    font-size: large;
+
+}
+.login_redirect p a{
+    text-decoration: none;
+    transition: .3s;
+    color:aliceblue;
+    cursor: pointer;
+
+}
+.login_redirect p a:hover{
+    color: grey;
+}
+.home{
+    position: absolute;
+    left: -250px;
+}
+
+.home button{
+    padding: 10px 20px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    transition: .5s;
+    font-weight: 600 ;
+}
+.home button:hover{
+    box-shadow: 0 0 10px black;
+}

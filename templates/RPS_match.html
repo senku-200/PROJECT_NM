@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>match getter</title>
+    <link rel="stylesheet" href="/static/styles/rps.css? {% now 'U' %}">
+
+</head>
+<body>
+    <header>
+        <h1>project-dj</h1>
+    </header>
+    <div class="content">
+        
+        <div class="game_logo">
+            <img src="static\assests\rock-paper-scissors.png" alt="">
+            <div class="title"><h1>rock-paper-scissors</h1></div>
+        </div>
+        <div class="image_field">
+            {% if mode == "match getter" %}
+                <img src="\static\assests\selector.jpg" alt="" srcset="">
+            {% else %}
+                {% if points_ai > points_user %}
+                    <img src="\static\assests\sad.jpg" alt="" srcset="">
+                {% elif points_user > points_ai%}
+                    <img src="\static\assests\userwon.jpg" alt="" srcset="">
+                {% else %}
+                    <img src="\static\assests\draw.jpg" alt="" srcset="">
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="container">
+        <main>
+            {% if mode == "match getter" %}
+                <div class="match_getter"> 
+                    <h1>select one of the mode give below</h1>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <button name="count" value="3">3x Matchs</button>
+                        <button name="count" value="5">5x Matchs</button>
+                        <button name="count" value="10">10x Matchs</button>
+                    </form>
+                </div>
+                <a href="{%url 'home' %}"><button  class="back-btn"><span class="span"><--</span>home</button></a>
+
+            {% else %}
+                <div class="match_getter">
+                        {% if points_ai > points_user %}
+                            <h1 class="winner">computer wins!!!</h1>
+                        {% elif points_user > points_ai %}
+                            <h1 class="winner">user wins!!!</h1>
+                        {% else %}
+                            <h1 class="winner">match ties!!!</h1>
+                        {% endif %}
+                        <div class="scorecard">
+                            <h2>Matchs: {{match_count}}</h2>
+                            <h2>Player score: {{points_user}}</h2>
+                            <h2>Computer score: {{points_ai}}</h2>
+                        </div>
+                </div>
+                
+                <a href="{% url 'opencv' %}"><button class="back-btn"><span class="span"><--</span>back</button>
+                </a>
+            {% endif %}
+        </main> 
+    </div>
+    
+</body>
+</html>

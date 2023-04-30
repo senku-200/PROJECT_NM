@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/signup_edit.css? {% now 'U' %}" >
+    <title>
+        SIGNUP-EDIT
+    </title>
+</head>
+<body> 
+    <header>
+        <a href="/" class="home"><button> Home </button></a>
+        <a href="/"><h1>project-dj</h1></a>
+    </header>
+
+    <div class="content">
+        <div class="headline">
+            <h1>Edit-Profile</h1>
+        </div>
+        <div class="headline-image">
+            <img src="\static\assests\registraionimges.png" alt="" srcset="">
+        </div>
+
+    </div>
+    <div class="container">
+
+        <form action="" method="post" enctype='multipart/form-data'>
+            {% csrf_token %}
+            <p>
+                <label for="id_email">Email:</label>
+                <input type="email" name="email" value={{form.email}} maxlength="100" required="" id="id_email">
+              </p>
+              <p>
+                <label for="id_username">Username:</label>
+                <input type="text" name="username" value={{form.username}} maxlength="100" required="" id="id_username">
+              </p>
+              <p>
+                <label for="id_firstname">Firstname:</label>
+                <input type="text" name="firstname" value={{form.firstname}} maxlength="100" id="id_firstname">
+              </p>
+              <p>
+                <label for="id_lastname">Lastname:</label>
+                <input type="text" name="lastname" value={{form.lastname}} maxlength="100" id="id_lastname">
+              </p>
+            <button type="submit" class="submit">SUBMIT</button>
+            <div class="login_redirect">
+                <p>Already has an account? <a href="{% url 'login' %}">Login</a> </p>
+            </div>
+            
+        </form>
+
+    </div>
+    <script src="static/scripts/register.js"></script>
+</body>
+</html>

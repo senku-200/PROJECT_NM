@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROFILE</title>
+    <link rel="stylesheet" href="static/styles/profile.css? {% now 'U' %}">
+</head>
+<body>
+    
+    <img src="{% static 'data/bg2.jpg' %}" class="bg">
+    <div class="container ">
+        <a href="/" class="home"><button> Home </button></a>
+        <div class="edit logout">
+            <a href="{% url 'logout' %}"><button class="logout" >Logout</button></a>
+        </div>
+        <div class="edit">
+            <a href="{% url 'signup_edit' %}"><button class="edit" >Edit</button></a>
+        </div>
+        <div class="camera">
+        <img src="{% static  'data/camera.png'%}" alt="" srcset="" name="img" class="popup_initiliser ">
+    </div>
+        {% if user.profile_image == '' %}
+            <img src="{% static 'data/user.png' %}" class="profile_image">
+        {% else %}
+            <img src={{user.profile_image}} class="profile_image">
+        {% endif %}
+        <div class="text_part">
+            <h1 class="username">@{{user}}</h1>
+            <h3 class="email">email: <span>{{user.email}}</span></h3>
+            {% if user.firstname == none %}
+                <h3 class="firstname">firstname: <span> --- </span></h3>
+            {% else %}
+                <h3 class="firstname">firstname: <span>{{user.firstname}}</span></h3>
+            {% endif %}
+            {% if user.lastname == none %}
+                <h3 class="lastname">lastname:<span> --- </span></h3>
+            {% else %}
+                <h3 class="lastname">lastname: <span>{{user.lastname}}</span></h3>
+            {% endif %}
+        </div>
+    </div>
+    <div class="summa"></div>
+    <div class="popup">
+        <div class="dj">
+            <div class="exit">
+                <img src="{% static 'data/close.png' %}" alt="" srcset="" class="popup_exit">
+            </div>
+            <div class="h1">
+            <h1>Project-dj</h1></div>
+            <div class="h3">
+            <h3>Profile Picture</h3></div>
+            <div class="p"><p>A picture helps people recognize you and lets you know when you’re signed in to your account</p></div>
+            {% if user.profile_image == '' %}
+                <img src="{% static 'data/user.png' %}" class="edit_profile_image">
+            {% else %}
+                <img src={{user.profile_image}} class="edit_profile_image">
+            {% endif %}
+            <div class="end">
+                    <button type="submit" class="change">Change</button>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <button type="submit" name="remove">remove</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+    <div class="get_image">
+        <div class="get_image_exit">
+            <img src="{% static 'data/close.png' %}" alt="" srcset="" class="image_getter_exit" >
+        </div>
+        <div class="h1">
+            <h1>Project-dj</h1>
+        </div>
+        <div class="h3 h3_move">
+            <h3>Change picture</h3>
+        </div>
+        <form method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+                <input type="file" name="image" class="chose_image" id="id_image">
+                <button type="submit" class="submit-btn">submit</button>
+        </form> 
+    </div>
+    <script src="{% static 'scripts/profile.js' %}"></script>
+</html>

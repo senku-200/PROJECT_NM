@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object_detecter</title>
+    <link rel="stylesheet" href="\static\styles\object_detector.css?{% now 'U' %}">
+</head>
+<body>
+    <a href="/" class="home"><button> Home </button></a>
+    <img src="{% static '\assests\wallpaper.jpg' %}">
+    <main>
+            <div class="compartment1">
+                <h1>"Image Object Recognition: Instantly Identify Objects within Your Images"</h1>
+                <p>
+                    Your website page allows users to upload an image from their computer or device. Once the image is uploaded, the website utilizes a computer vision algorithm to identify the objects within the image. The identified objects are then displayed on the website page, along with their corresponding labels.
+                    
+                    In addition to displaying the identified objects, the website also provides users with the option to view the original image and the identified objects side by side. This could be done by displaying the original image and overlaying the identified objects with bounding boxes or highlighting them in some other way.
+                    
+                    Overall, your website page provides a convenient and user-friendly way for individuals to identify objects within their images, making it easier for them to understand and analyze the visual content they have.</p>
+                <form action="" method="post" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    <input type="file" name="image" id="id_image">
+                    <button type="submit"> Launch </button>
+                </form>
+            </div>
+            <div class="compartment2">
+                {% if mode != 'display' %}
+                <h3>Detected objects</h3>
+                {% else %}
+                    <div class="h4">
+                        <p>objects</p>
+                        {% for label in label %}
+                            <h4>{{label}}</h4>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+    </main>
+</body>
+</html>

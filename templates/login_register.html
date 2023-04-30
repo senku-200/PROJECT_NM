@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if mode == 'edit' %}
+        <link rel="stylesheet" href="/static/styles/signup_edit.css? {% now 'U' %}" >
+    {% else %}
+        <link rel="stylesheet" href="/static/styles/login_registraion.css? {% now 'U' %}" >
+    {% endif %}
+    <title>
+        {% if form_name == 'register' %}
+             REGISTER
+        {% else %}
+            LOGIN
+        {% endif %}
+
+    </title>
+</head>
+<body> 
+    <header>
+        <a href="/" class="home"><button> Home </button></a>
+        <h1>project-dj</h1>
+        
+    </header>
+
+    <div class="content">
+        <div class="headline">
+            {% if form_name == 'register' %}
+                <h1>Signup</h1>
+            {% else %}
+                <h1>Login</h1>
+            {% endif %}
+        </div>
+        <div class="headline-image">
+            {% if form_name == 'register' %}
+                <img src="\static\assests\registraionimges.png" alt="" srcset="">
+            {% else %}
+                <img src="\static\assests\login.jpg" alt="" srcset="">
+            {% endif %}
+        </div>
+
+    </div>
+    <div class="container">
+
+        {% if form_name == 'register' %}
+        <form action="" method="post" enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="submit">SUBMIT</button>
+            <div class="login_redirect">
+                <p>Already has an account? <a href="{% url 'login' %}">Login</a> </p>
+            </div>
+            
+        </form>
+        {% else %}
+        <form action="" method="post" enctype='multipart/form-data'>
+            {% csrf_token %}
+                <p>
+                    <label for="">Email:</label>
+                    <input type="email" name="email">
+                </p>
+                <p>
+                    <label for="">Password: </label> 
+                    <input type="password" name="password">
+                </p>
+                <button type="submit" class="submit">SUBMIT</button>  
+                <div class="login_redirect">
+                    <p>Doesn't have an account?<a href="{% url 'register' %}">Signup</a></p> 
+                </div>
+        </form>
+        {% endif %} 
+
+    </div>
+    <script src="static/scripts/register.js"></script>
+</body>
+</html>

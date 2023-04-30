@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT</title>
+    <link rel="stylesheet" href="\static\styles\home.css?{% now 'U' %}">
+</head>
+
+<body>
+    <img src="{% static 'data\pexels-martin-péchy-304664.jpg' %}" class="bg">
+    <nav>
+        <img src="{% static '\data\logo.png' %}" alt="logo" class="logo">
+        <h1 class="title">project-dj</h1>
+        
+        <div class="searchbar">
+            <img src="{% static 'data/search (1).png' %}" alt="">
+            <input type="text" class="search" placeholder="search here...">
+        </div> 
+        {% if user.is_authenticated %}
+            {% if user.profile_image != "" %}
+                <div class="profile">
+                    <a href="{% url 'profile' %}"><img src={{user.profile_image}} class="profile_img" width="60px"></a>
+                    <h5>@{{user}}</h5> 
+                </div> 
+            {% else %}
+                <div class="profile">
+                    <a href="{% url 'profile' %}"><img src="{% static 'data/user.png' %}" class="profile_img" width="60px"></a>
+                    <h5>@{{user}}</h5> 
+                </div> 
+            {% endif %}
+        {% else %}
+        <div class="get_into">   
+            <a href="{% url 'login' %}" class="login">login</a>
+            <a href="{% url 'register' %}" class="signup"><button>signup</button></a>
+        </div>
+        {% endif %}
+    </nav>
+    <main>
+        <article>
+            <div class="text">
+                <h1>Python Django Image Processing</h1>
+                <p>
+                    "Our hackathon project website is entirely built upon Python Django and focuses on image processing using Python. We have implemented various features to enhance user experience and encourage engagement with our content. Explore our website to discover the possibilities of image processing using Python Django!"
+                </p>
+            </div>
+        </article>
+        <div class="prj1 ">
+            <div class="project-sector">
+                    <div class="project_space"></div>
+                        <div class="hidder">
+                            <span><h5>{{project1.title}}</h5></span> 
+                            <a href="{% url 'opencv'  %}" class="play_game"><button>Play Game</button></a>
+                        </div>
+                        <img src={{project1.template}} class="project_template" width="300px">
+                    </div>
+            </div>
+        </div>
+        <img src="{% static 'assests/next.png' %}" class="next" width="50px">
+        <img src="{% static 'assests/previous.png' %}" class="previous" width="50px">
+        <div class="prj2">
+            </article>
+            <div class="project-sector">
+                    <div class="project_space"></div>
+                        <div class="hidder">
+                            <span><h5>{{project2}}</h5></span> 
+                            <a href="{% url 'object_detector' %}" class="play_game"><button>DECTECT</button></a>
+                        </div>
+                        <img src="{% static 'data/dector.gif' %}" class="project_template" width="300px">
+                    </div>
+            </div>
+        </div>
+    </main>
+    <script src="{% static 'scripts/home.js' %} "></script>
+</body>
+</html>
